@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ paper.title }}</title>
+<style>
+:root{
+  --paper:#fcfaf5; --card:#ffffff; --ink:#1a3300; --ink-2:#3f5325; --muted:#6b7a5a;
+  --yellow:#ffe95c; --line:#e2ddd0; --e:#1a3300; --f:#2f6f8f; --i:#a6741a; --h:#7d8570;
+  --r:10px; --r2:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.62;
+}
+.wrap{max-width:920px; margin:0 auto; padding:20px 16px 56px}
+h1,h2,h3,.metric b,.headline{font-family:"Bricolage Grotesque","Inter","Segoe UI",system-ui,sans-serif; font-weight:800; letter-spacing:-.01em}
+h1{font-size:30px; line-height:1.2; margin:0 0 10px}
+h2{font-size:21px; margin:34px 0 10px}
+h3{font-size:16.5px; margin:20px 0 6px}
+p{margin:0 0 11px}
+a{color:#1a3300; text-underline-offset:3px}
+blockquote{margin:0; font-size:15.5px; color:var(--ink-2)}
+code,.mono{font-family:"Roboto Mono",Consolas,monospace; font-size:13px}
+
+header.head{border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:20px}
+.byline{font-size:13.5px; color:var(--muted); margin:0 0 8px; word-break:break-word}
+.srcnote{font-size:13px; color:var(--muted); margin:0}
+
+.tierlabel{
+  display:inline-block; background:var(--yellow); color:var(--ink);
+  font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  padding:3px 9px; border-radius:999px; margin:0 0 10px;
+}
+section.tier{margin:26px 0 0; padding-top:4px}
+.headline{font-size:24px; line-height:1.32; margin:8px 0 16px}
+
+.metrics{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 14px}
+.metric{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--ink); border-radius:var(--r); padding:11px 12px}
+.metric b{display:block; font-size:23px; line-height:1.15}
+.metric span{font-size:12.5px; color:var(--muted)}
+
+.box{background:var(--card); border:1px solid var(--line); border-radius:var(--r2); padding:14px 15px; margin:0 0 14px}
+.box.quote{border-left:5px solid var(--yellow)}
+
+.toc{list-style:none; padding:0; margin:0}
+.toc li{border-bottom:1px dotted var(--line); padding:9px 0}
+.toc li:last-child{border-bottom:0}
+.toc b{font-size:15.5px}
+.toc .pg{font-size:12.5px; color:var(--muted); white-space:nowrap}
+.toc .lead{font-size:13.5px; color:var(--ink-2); margin:3px 0 0}
+
+.barrows{margin:12px 0 0}
+.barhead{display:flex; justify-content:space-between; gap:10px; align-items:baseline; margin-bottom:5px}
+.bname{font-size:13px; word-break:break-word}
+.bval{font-size:13.5px; font-weight:700; white-space:nowrap}
+.track{height:13px; background:#eceadf; border-radius:7px; overflow:hidden; margin-bottom:11px}
+.fill{height:100%; border-radius:7px; min-width:3px}
+.fill.e{background:var(--e)} .fill.f{background:var(--f)} .fill.i{background:var(--i)} .fill.h{background:var(--h)}
+.fill.w{background:#c9c2a6}
+
+.flow{list-style:none; padding:0; margin:0}
+.flow li{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:10px 12px; margin-bottom:9px}
+.flow .line{font-size:15px; font-weight:700; word-break:break-word}
+.flow .sym{display:inline-block; background:var(--yellow); border-radius:6px; padding:0 6px; margin:0 4px}
+.flow .ev{font-size:12.5px; color:var(--muted); margin-top:4px}
+
+.legend{display:flex; flex-wrap:wrap; gap:8px; margin:9px 0 14px}
+.legend span{font-size:12.5px; border:1px solid var(--line); background:var(--card); border-radius:999px; padding:3px 10px}
+
+.claim{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px; margin-bottom:9px}
+.claim .top{display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-bottom:5px}
+.badge{font-size:12px; font-weight:700; border-radius:999px; padding:2px 8px; border:1px solid var(--line); color:#fff}
+.badge.e{background:var(--e)} .badge.f{background:var(--f)} .badge.i{background:var(--i)} .badge.h{background:var(--h)}
+.badge.soft{background:var(--card); color:var(--ink-2)}
+.badge.warn{background:var(--yellow); color:var(--ink)}
+.claim p{margin:0; font-size:14.5px}
+
+details{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px; margin:0 0 12px}
+details>summary{cursor:pointer; font-size:14px; font-weight:700}
+details[open]>summary{margin-bottom:9px}
+details ol,details ul{margin:0; padding-left:20px}
+details li{font-size:14px; margin-bottom:7px; word-break:break-word}
+
+.chips{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px}
+.chip{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:4px 11px; font-size:13px}
+.chip b{font-family:"Roboto Mono",Consolas,monospace; font-size:13px}
+
+.sec{border-top:2px solid var(--ink); padding-top:12px; margin-top:26px}
+.sec .shead{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline}
+.sec .smeta{font-size:12.5px; color:var(--muted); white-space:nowrap}
+
+.check{background:#fffdf0; border:1px solid var(--line); border-left:5px solid var(--ink); border-radius:var(--r); padding:13px 14px}
+.check ol{margin:0; padding-left:20px}
+.check li{font-size:14px; margin-bottom:7px}
+
+footer.foot{border-top:1px solid var(--line); margin-top:34px; padding-top:12px; font-size:12.5px; color:var(--muted); overflow-wrap:anywhere}
+
+@media (min-width:680px){
+  .wrap{padding:30px 24px 70px}
+  h1{font-size:36px}
+  .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .metric b{font-size:26px}
+}
+@media print{
+  body{background:#fff; font-size:11.5pt}
+  .wrap{max-width:100%; padding:0}
+  h2{page-break-after:avoid}
+  .box,.claim,.metric,details{break-inside:avoid}
+  details{display:block}
+  details>summary{list-style:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .flow li,.claim{transition:transform .16s ease-out}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <h1>{{ paper.title }}</h1>
+  <p class="byline">
+    {% if meta.authors %}{{ meta.authors[:14] | join(', ') }}{% if meta.authors|length > 14 %} và {{ meta.authors|length - 14 }} người nữa{% endif %} · {% endif %}
+    {% if meta.journal %}{{ meta.journal }} · {% endif %}{{ meta.year }}
+    {% if meta.doi %} · DOI <a href="https://doi.org/{{ meta.doi }}" rel="noopener">{{ meta.doi }}</a>{% endif %}
+    {% if meta.pmid %} · PMID {{ meta.pmid }}{% endif %}
+    {% if meta.pmcid %} · {{ meta.pmcid }}{% endif %}
+  </p>
+  <p class="srcnote">{{ paper.pages }} trang PDF · {{ u.n_claims_total }} câu khẳng định bóc được, hiển thị {{ u.n_claims_shown }} câu đáng đọc nhất · {{ u.n_stats }} số liệu giữ nguyên văn · {{ u.n_figures }} hình và bảng · {{ u.n_refs }} tài liệu tham khảo</p>
+</header>
+
+<section class="tier" id="tang1">
+  <span class="tierlabel">Tầng 1 · đọc 5 giây</span>
+  <p class="headline">{{ u.headline }}</p>
+
+  <div class="metrics">
+    <div class="metric"><b>{{ u.sample or "không nêu" }}</b><span>cỡ mẫu bài nêu{% if u.sample_note %} · {{ u.sample_note }}{% endif %}</span></div>
+    <div class="metric"><b>{{ u.n_stats }}</b><span>số liệu bóc được</span></div>
+    <div class="metric"><b>{{ u.n_figures }}</b><span>hình và bảng</span></div>
+    <div class="metric"><b>{{ u.n_claims_total }}</b><span>câu khẳng định</span></div>
+  </div>
+
+  {% if u.conclusion %}
+  <div class="box quote">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:5px">Kết luận tác giả tự viết</p>
+    <blockquote>{{ u.conclusion }}</blockquote>
+  </div>
+  {% endif %}
+
+  {% if u.key_numbers %}
+  <h3>Ba con số then chốt</h3>
+  <div class="chips">
+    {% for k in u.key_numbers %}
+    <span class="chip"><b>{{ k.value }}</b> · {{ k.section }}, tr. {{ k.page }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</section>
+
+<section class="tier" id="tang2">
+  <span class="tierlabel">Tầng 2 · đọc 1 phút</span>
+
+  <h2 style="margin-top:12px">Bài này có những phần gì</h2>
+  <ul class="toc">
+    {% for t in u.toc %}
+    <li>
+      <b>{{ t.label }}</b> <span class="pg">tr. {{ t.page }} · {{ t.words }} từ</span>
+      {% if t.lead %}<p class="lead">{{ t.lead }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h2>Bằng chứng nằm ở đâu</h2>
+  <p style="font-size:13.5px;color:var(--muted)">Đếm theo hình thức câu, không theo cảm nhận. Câu có số đo được xếp E, câu chỉ trỏ tới hình bảng xếp F, câu suy luận xếp I, còn lại là H.</p>
+  <div class="barrows">
+    {% for b in evidence_bars %}
+    <div class="barrow">
+      <div class="barhead"><span class="bname">{{ b.key }} · {{ b.label }}</span><span class="bval">{{ b.count }} câu, {{ b.pct }}%</span></div>
+      <div class="track"><div class="fill {{ b.key|lower }}" style="width:{{ b.pct }}%"></div></div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <h2>Bài dành bao nhiêu chữ cho phần nào</h2>
+  <div class="barrows">
+    {% for b in weight_bars %}
+    <div class="barrow">
+      <div class="barhead"><span class="bname">{{ b.label }}</span><span class="bval">{{ b.words }} từ</span></div>
+      <div class="track"><div class="fill w" style="width:{{ b.pct }}%"></div></div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="tier" id="tang3">
+  <span class="tierlabel">Tầng 3 · đọc kỹ</span>
+
+  <h2 style="margin-top:12px">Bản đồ cơ chế rút từ câu gốc</h2>
+  <div class="legend">
+    {% for s in symbol_legend %}<span><b>{{ s.symbol }}</b> {{ s.label }}</span>{% endfor %}
+  </div>
+  {% if u.flow %}
+  <ul class="flow">
+    {% for f in u.flow %}
+    <li>
+      <div class="line">{{ f.subject }} <span class="sym">{{ f.symbol }}</span> {{ f.object }}</div>
+      <div class="ev">tr. {{ f.page }} · {{ f.symbol_label }}</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">{{ f.sentence }}</p></details>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <div class="box"><p style="margin:0">Không bóc được câu quan hệ nhân quả nào. Bài có thể viết theo lối mô tả, cần đọc phần bàn luận bằng mắt.</p></div>
+  {% endif %}
+
+  {% if u.methods %}
+  <h2>Cách làm, theo đúng thứ tự bài viết</h2>
+  <ol style="padding-left:20px">
+    {% for m in u.methods %}
+    <li style="margin-bottom:8px;font-size:14.5px">{{ m.text }} <span class="mono" style="color:var(--muted)">tr.{{ m.page }}</span></li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
+  {% if u.doses %}
+  <h2>Liều và nồng độ đã dùng</h2>
+  <div class="chips">
+    {% for d in u.doses %}
+    <span class="chip"><b>{{ d.value }}</b>{% if d.agent %} · {{ d.agent }}{% endif %} <span style="color:var(--muted)">tr.{{ d.page }}</span></span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if u.figures %}
+  <h2>Hình và bảng</h2>
+  <details>
+    <summary>{{ u.figures|length }} mục, bấm để xem chú thích gốc</summary>
+    <ol>
+      {% for f in u.figures %}
+      <li><b>{{ f.kind }} {{ f.number }}</b> <span class="mono" style="color:var(--muted)">tr.{{ f.page }}</span><br>{{ f.caption }}</li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+
+  <h2>Từng phần, kèm mức bằng chứng của từng câu</h2>
+  <div class="legend">
+    {% for e in evidence_legend %}<span><b>{{ e.key }}</b> {{ e.label }}</span>{% endfor %}
+  </div>
+
+  {% for s in u.sections %}
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">{{ s.label }}</h3>
+      <span class="smeta">tr. {{ s.page }} · {{ s.words }} từ · {{ s.n_claims_total }} câu</span>
+    </div>
+    {% if s.lead %}<p style="font-size:14px;color:var(--ink-2)">{{ s.lead }}</p>{% endif %}
+    {% if s.subheads %}
+    <div class="chips">
+      {% for h in s.subheads %}<span class="chip" style="font-size:12.5px">{{ h }}</span>{% endfor %}
+    </div>
+    {% endif %}
+    {% if s.claims %}
+    <details>
+      <summary>Mở {{ s.n_claims }} câu đáng đọc của phần này{% if s.n_hidden %} (còn {{ s.n_hidden }} câu nữa không hiển thị){% endif %}</summary>
+      {% for c in s.claims %}
+      <div class="claim">
+        <div class="top">
+          <span class="badge {{ c.evidence|lower }}">{{ c.evidence }}</span>
+          <span class="badge soft">{{ c.evidence_label }}</span>
+          <span class="badge soft">tr. {{ c.page }}</span>
+          {% if c.flag %}<span class="badge warn">{{ c.flag }}</span>{% endif %}
+        </div>
+        <p>{{ c.text }}</p>
+      </div>
+      {% endfor %}
+    </details>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <h2>Phê bình số liệu, máy đếm được</h2>
+  {% if u.critique %}
+  <ul style="padding-left:20px;margin:0 0 8px">
+    {% for c in u.critique %}
+    <li style="margin-bottom:8px;font-size:14.5px">{{ c }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <h2>{% if u.limitations_source == "hedge" %}Câu để ngữ ở phần bàn luận, chỗ tác giả chưa chắc{% else %}Tác giả tự nêu giới hạn{% endif %}</h2>
+  {% if u.limitations %}
+  <details open>
+    <summary>{{ u.limitations|length }} câu{% if u.limitations_source == "hedge" %} để ngữ{% else %} tự giới hạn{% endif %}, đọc trước khi tin kết quả</summary>
+    <ol>
+      {% for l in u.limitations %}
+      <li>{{ l.text }} <span class="mono" style="color:var(--muted)">{{ l.section }}, tr.{{ l.page }}</span></li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% else %}
+  <div class="box"><p style="margin:0">Bài không có câu nào tự giới hạn theo mẫu nhận dạng. Đây là điểm cần lưu ý, không phải điểm cộng.</p></div>
+  {% endif %}
+
+  <h2>Câu hỏi còn bỏ ngỏ</h2>
+  {% if u.open_questions %}
+  <ol style="padding-left:20px">
+    {% for q in u.open_questions %}
+    <li style="margin-bottom:8px;font-size:14.5px">{{ q.text }} <span class="mono" style="color:var(--muted)">{{ q.section }}, tr.{{ q.page }}</span></li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <div class="box"><p style="margin:0">Không có câu nào nêu việc còn phải làm. Bài tự coi như đã khép.</p></div>
+  {% endif %}
+
+  {% if u.glossary %}
+  <h2>Từ điển viết tắt</h2>
+  <details>
+    <summary>{{ u.glossary|length }} từ viết tắt, bấm để mở</summary>
+    <ol>
+      {% for g in u.glossary %}
+      <li><b>{{ g.abbr }}</b> · {{ g.full }} <span style="color:var(--muted)">({{ g.count }} lần)</span></li>
+      {% endfor %}
+    </ol>
+  </details>
+  {% endif %}
+
+  <h2>Cách tự kiểm trang này</h2>
+  <div class="check">
+    <ol>
+      <li>Lấy đúng file PDF gốc, mở đúng số trang ghi trên từng câu, so lại nguyên văn.</li>
+      <li>Ba con số then chốt là số máy bóc, không phải số máy tính lại. Sai ngữ cảnh thì bỏ.</li>
+      <li>Bản đồ cơ chế là câu gốc cắt gọn, không phải kết luận của công cụ. Đọc câu gốc trong mục gập trước khi dùng.</li>
+      <li>Nhãn bằng chứng gán theo hình thức câu. Câu có số chưa chắc đã đúng thiết kế, cần đọc phương pháp.</li>
+      <li>Trang không dịch câu tiếng Anh. Mọi câu trong ngoặc kép giữ nguyên tiếng gốc để đối chiếu.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  Dựng tự động bằng paper2page {{ version }} · Nguồn: {{ source_label }} · Cỡ chữ thân bài gốc {{ paper.body_font }}pt · Số và câu giữ nguyên văn, không làm tròn lại.
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coated Zinc Oxide Improves Growth Performance of Weaned Piglets via Gut Microbiota</title>
+<style>
+:root{
+  --paper:#fcfaf5; --card:#ffffff; --ink:#1a3300; --ink-2:#3f5325; --muted:#6b7a5a;
+  --yellow:#ffe95c; --line:#e2ddd0; --e:#1a3300; --f:#2f6f8f; --i:#a6741a; --h:#7d8570;
+  --r:10px; --r2:16px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif;
+  font-size:16px; line-height:1.62;
+}
+.wrap{max-width:920px; margin:0 auto; padding:20px 16px 56px}
+h1,h2,h3,.metric b,.headline{font-family:"Bricolage Grotesque","Inter","Segoe UI",system-ui,sans-serif; font-weight:800; letter-spacing:-.01em}
+h1{font-size:30px; line-height:1.2; margin:0 0 10px}
+h2{font-size:21px; margin:34px 0 10px}
+h3{font-size:16.5px; margin:20px 0 6px}
+p{margin:0 0 11px}
+a{color:#1a3300; text-underline-offset:3px}
+blockquote{margin:0; font-size:15.5px; color:var(--ink-2)}
+code,.mono{font-family:"Roboto Mono",Consolas,monospace; font-size:13px}
+
+header.head{border-bottom:2px solid var(--ink); padding-bottom:14px; margin-bottom:20px}
+.byline{font-size:13.5px; color:var(--muted); margin:0 0 8px; word-break:break-word}
+.srcnote{font-size:13px; color:var(--muted); margin:0}
+
+.tierlabel{
+  display:inline-block; background:var(--yellow); color:var(--ink);
+  font-size:12px; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  padding:3px 9px; border-radius:999px; margin:0 0 10px;
+}
+section.tier{margin:26px 0 0; padding-top:4px}
+.headline{font-size:24px; line-height:1.32; margin:8px 0 16px}
+
+.metrics{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; margin:0 0 14px}
+.metric{background:var(--card); border:1px solid var(--line); border-left:5px solid var(--ink); border-radius:var(--r); padding:11px 12px}
+.metric b{display:block; font-size:23px; line-height:1.15}
+.metric span{font-size:12.5px; color:var(--muted)}
+
+.box{background:var(--card); border:1px solid var(--line); border-radius:var(--r2); padding:14px 15px; margin:0 0 14px}
+.box.quote{border-left:5px solid var(--yellow)}
+
+.toc{list-style:none; padding:0; margin:0}
+.toc li{border-bottom:1px dotted var(--line); padding:9px 0}
+.toc li:last-child{border-bottom:0}
+.toc b{font-size:15.5px}
+.toc .pg{font-size:12.5px; color:var(--muted); white-space:nowrap}
+.toc .lead{font-size:13.5px; color:var(--ink-2); margin:3px 0 0}
+
+.barrows{margin:12px 0 0}
+.barhead{display:flex; justify-content:space-between; gap:10px; align-items:baseline; margin-bottom:5px}
+.bname{font-size:13px; word-break:break-word}
+.bval{font-size:13.5px; font-weight:700; white-space:nowrap}
+.track{height:13px; background:#eceadf; border-radius:7px; overflow:hidden; margin-bottom:11px}
+.fill{height:100%; border-radius:7px; min-width:3px}
+.fill.e{background:var(--e)} .fill.f{background:var(--f)} .fill.i{background:var(--i)} .fill.h{background:var(--h)}
+.fill.w{background:#c9c2a6}
+
+.flow{list-style:none; padding:0; margin:0}
+.flow li{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:10px 12px; margin-bottom:9px}
+.flow .line{font-size:15px; font-weight:700; word-break:break-word}
+.flow .sym{display:inline-block; background:var(--yellow); border-radius:6px; padding:0 6px; margin:0 4px}
+.flow .ev{font-size:12.5px; color:var(--muted); margin-top:4px}
+
+.legend{display:flex; flex-wrap:wrap; gap:8px; margin:9px 0 14px}
+.legend span{font-size:12.5px; border:1px solid var(--line); background:var(--card); border-radius:999px; padding:3px 10px}
+
+.claim{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px; margin-bottom:9px}
+.claim .top{display:flex; flex-wrap:wrap; gap:7px; align-items:center; margin-bottom:5px}
+.badge{font-size:12px; font-weight:700; border-radius:999px; padding:2px 8px; border:1px solid var(--line); color:#fff}
+.badge.e{background:var(--e)} .badge.f{background:var(--f)} .badge.i{background:var(--i)} .badge.h{background:var(--h)}
+.badge.soft{background:var(--card); color:var(--ink-2)}
+.badge.warn{background:var(--yellow); color:var(--ink)}
+.claim p{margin:0; font-size:14.5px}
+
+details{background:var(--card); border:1px solid var(--line); border-radius:var(--r); padding:11px 12px; margin:0 0 12px}
+details>summary{cursor:pointer; font-size:14px; font-weight:700}
+details[open]>summary{margin-bottom:9px}
+details ol,details ul{margin:0; padding-left:20px}
+details li{font-size:14px; margin-bottom:7px; word-break:break-word}
+
+.chips{display:flex; flex-wrap:wrap; gap:7px; margin:0 0 12px}
+.chip{background:var(--card); border:1px solid var(--line); border-radius:999px; padding:4px 11px; font-size:13px}
+.chip b{font-family:"Roboto Mono",Consolas,monospace; font-size:13px}
+
+.sec{border-top:2px solid var(--ink); padding-top:12px; margin-top:26px}
+.sec .shead{display:flex; flex-wrap:wrap; justify-content:space-between; gap:8px; align-items:baseline}
+.sec .smeta{font-size:12.5px; color:var(--muted); white-space:nowrap}
+
+.check{background:#fffdf0; border:1px solid var(--line); border-left:5px solid var(--ink); border-radius:var(--r); padding:13px 14px}
+.check ol{margin:0; padding-left:20px}
+.check li{font-size:14px; margin-bottom:7px}
+
+footer.foot{border-top:1px solid var(--line); margin-top:34px; padding-top:12px; font-size:12.5px; color:var(--muted); overflow-wrap:anywhere}
+
+@media (min-width:680px){
+  .wrap{padding:30px 24px 70px}
+  h1{font-size:36px}
+  .metrics{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .metric b{font-size:26px}
+}
+@media print{
+  body{background:#fff; font-size:11.5pt}
+  .wrap{max-width:100%; padding:0}
+  h2{page-break-after:avoid}
+  .box,.claim,.metric,details{break-inside:avoid}
+  details{display:block}
+  details>summary{list-style:none}
+}
+@media (prefers-reduced-motion:no-preference){
+  .flow li,.claim{transition:transform .16s ease-out}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="head">
+  <h1>Coated Zinc Oxide Improves Growth Performance of Weaned Piglets via Gut Microbiota</h1>
+  <p class="byline">
+Sun Y, Ma N, Qi Z, Han M, Ma X · Frontiers in nutrition · 2022
+ · DOI <a href="https://doi.org/10.3389/fnut.2022.819722" rel="noopener">10.3389/fnut.2022.819722</a> · PMID 35284437 · PMC8916703  </p>
+  <p class="srcnote">12 trang PDF · 378 câu khẳng định bóc được, hiển thị 60 câu đáng đọc nhất · 173 số liệu giữ nguyên văn · 10 hình và bảng · 55 tài liệu tham khảo</p>
+</header>
+
+<section class="tier" id="tang1">
+  <span class="tierlabel">Tầng 1 · đọc 5 giây</span>
+  <p class="headline">Coated ZnO could improve growth performance and alleviate diarrhea in the weaned piglets, which was characterized by the improved intestinal barrier and intestinal morphology.</p>
+
+  <div class="metrics">
+    <div class="metric"><b>126 con</b><span>cỡ mẫu bài nêu · nhóm nhỏ nhất 6</span></div>
+    <div class="metric"><b>173</b><span>số liệu bóc được</span></div>
+    <div class="metric"><b>10</b><span>hình và bảng</span></div>
+    <div class="metric"><b>378</b><span>câu khẳng định</span></div>
+  </div>
+
+  <div class="box quote">
+    <p style="font-size:13px;color:var(--muted);margin-bottom:5px">Kết luận tác giả tự viết</p>
+    <blockquote>Coated ZnO could improve growth performance and alleviate diarrhea in the weaned piglets, which was characterized by the improved intestinal barrier and intestinal morphology. Significantly, C_ZnO mainly adjusted the composition and structure of ileal microbiota, accompanied by increased concentration of SCFAs to exhibit its positive function.</blockquote>
+  </div>
+
+  <h3>Ba con số then chốt</h3>
+  <div class="chips">
+    <span class="chip"><b>2,000 mg</b> · Kết luận, tr. 10</span>
+    <span class="chip"><b>500 mg</b> · Kết luận, tr. 10</span>
+    <span class="chip"><b>1 g</b> · Kết quả, tr. 8</span>
+  </div>
+</section>
+
+<section class="tier" id="tang2">
+  <span class="tierlabel">Tầng 2 · đọc 1 phút</span>
+
+  <h2 style="margin-top:12px">Bài này có những phần gì</h2>
+  <ul class="toc">
+    <li>
+      <b>Đặt vấn đề</b> <span class="pg">tr. 1 · 508 từ</span>
+<p class="lead">These years, early weaning techniques were commonly used in factories with the acceleration of the intensive breeding process, which directly caused severe diarrhea in piglets under multiple stresses, such as shifts in n</p>    </li>
+    <li>
+      <b>Vật liệu và phương pháp</b> <span class="pg">tr. 2 · 1843 từ</span>
+<p class="lead">Animals and Treatments A total of 126 crossbred piglets (Duroc × Landrace × Yorkshire, weaned at 21 days) with an initial body weight (IBW) of 7.0 ± 0.5 kg, were allocated into three groups, six replicates per group, and</p>    </li>
+    <li>
+      <b>Kết quả</b> <span class="pg">tr. 5 · 1052 từ</span>
+<p class="lead">C_ZnO Improved the Growth Performance, Diarrhea Rate, and Intestinal Permeability Coated ZnO improved end bodyweight (EDW), ADG, and F/G compared to the CON group and even the ZnO group (P &lt; 0.05).</p>    </li>
+    <li>
+      <b>Bàn luận</b> <span class="pg">tr. 8 · 1394 từ</span>
+<p class="lead">Coated ZnO reached a better effect than traditional ZnO on ADG and feed efficiency even in a lower dose, which coincided with the abundance of previous data (3, 18).</p>    </li>
+    <li>
+      <b>Kết luận</b> <span class="pg">tr. 10 · 376 từ</span>
+<p class="lead">Coated ZnO could improve growth performance and alleviate diarrhea in the weaned piglets, which was characterized by the improved intestinal barrier and intestinal morphology.</p>    </li>
+  </ul>
+
+  <h2>Bằng chứng nằm ở đâu</h2>
+  <p style="font-size:13.5px;color:var(--muted)">Đếm theo hình thức câu, không theo cảm nhận. Câu có số đo được xếp E, câu chỉ trỏ tới hình bảng xếp F, câu suy luận xếp I, còn lại là H.</p>
+  <div class="barrows">
+    <div class="barrow">
+      <div class="barhead"><span class="bname">E · Số đo trong câu</span><span class="bval">66 câu, 17.5%</span></div>
+      <div class="track"><div class="fill e" style="width:17.5%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">F · Bằng chứng ở hình hoặc bảng</span><span class="bval">6 câu, 1.6%</span></div>
+      <div class="track"><div class="fill f" style="width:1.6%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">I · Suy luận hoặc cơ chế đề xuất</span><span class="bval">12 câu, 3.2%</span></div>
+      <div class="track"><div class="fill i" style="width:3.2%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">H · Khẳng định không kèm số</span><span class="bval">294 câu, 77.8%</span></div>
+      <div class="track"><div class="fill h" style="width:77.8%"></div></div>
+    </div>
+  </div>
+
+  <h2>Bài dành bao nhiêu chữ cho phần nào</h2>
+  <div class="barrows">
+    <div class="barrow">
+      <div class="barhead"><span class="bname">Đặt vấn đề</span><span class="bval">508 từ</span></div>
+      <div class="track"><div class="fill w" style="width:27.6%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">Vật liệu và phương pháp</span><span class="bval">1843 từ</span></div>
+      <div class="track"><div class="fill w" style="width:100.0%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">Kết quả</span><span class="bval">1052 từ</span></div>
+      <div class="track"><div class="fill w" style="width:57.1%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">Bàn luận</span><span class="bval">1394 từ</span></div>
+      <div class="track"><div class="fill w" style="width:75.6%"></div></div>
+    </div>
+    <div class="barrow">
+      <div class="barhead"><span class="bname">Kết luận</span><span class="bval">376 từ</span></div>
+      <div class="track"><div class="fill w" style="width:20.4%"></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tier" id="tang3">
+  <span class="tierlabel">Tầng 3 · đọc kỹ</span>
+
+  <h2 style="margin-top:12px">Bản đồ cơ chế rút từ câu gốc</h2>
+  <div class="legend">
+<span><b>→</b> kích hoạt / làm tăng</span><span><b>⊣</b> chặn / ức chế</span><span><b>⊘</b> không thấy tác động</span><span><b>↑</b> tăng</span><span><b>↓</b> giảm</span>  </div>
+  <ul class="flow">
+    <li>
+      <div class="line">improved mucosal barrier function <span class="sym">⊣</span> diarrhea</div>
+      <div class="ev">tr. 2 · chặn / ức chế</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">of improved mucosal barrier function and reduced diarrhea</p></details>
+    </li>
+    <li>
+      <div class="line">lower content ZnO mg Zn kg <span class="sym">⊘</span> make</div>
+      <div class="ev">tr. 2 · không thấy tác động</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">while lower content of ZnO (100 or 200 mg Zn/kg) did not make</p></details>
+    </li>
+    <li>
+      <div class="line">Coated ZnO <span class="sym">→</span> end bodyweight EDW ADG</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">Coated ZnO improved end bodyweight (EDW), ADG, and F/G</p></details>
+    </li>
+    <li>
+      <div class="line">ZnO <span class="sym">⊣</span> diarrhea incidence</div>
+      <div class="ev">tr. 5 · chặn / ức chế</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">ZnO and C_ZnO both effectively reduced the diarrhea incidence</p></details>
+    </li>
+    <li>
+      <div class="line">ZnO <span class="sym">⊣</span> intestinal permeability</div>
+      <div class="ev">tr. 5 · chặn / ức chế</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">C_ZnO also significantly decreased the intestinal permeability</p></details>
+    </li>
+    <li>
+      <div class="line">Coated ZnO <span class="sym">→</span> villus height ileum</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">Coated ZnO significantly increased the villus height in the ileum</p></details>
+    </li>
+    <li>
+      <div class="line">Coated ZnO <span class="sym">→</span> expression Occludin</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">Coated ZnO significantly increased the expression of Occludin</p></details>
+    </li>
+    <li>
+      <div class="line">Ileum harbored <span class="sym">→</span> bacterial richness ZnO</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">Ileum harbored increased bacterial richness with the ZnO</p></details>
+    </li>
+    <li>
+      <div class="line">chủ thể <span class="sym">→</span> Chao index Figure</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">by the higher Chao index (P &lt; 0.05, Figure 3A).</p></details>
+    </li>
+    <li>
+      <div class="line">Corynebacteriaceae <span class="sym">→</span> accompanied</div>
+      <div class="ev">tr. 5 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">Corynebacteriaceae (P &lt; 0.05) were increased, accompanied</p></details>
+    </li>
+    <li>
+      <div class="line">induced remarkable <span class="sym">→</span> Lactobacillaceae</div>
+      <div class="ev">tr. 7 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">both induced a remarkable increase of Lactobacillaceae (P</p></details>
+    </li>
+    <li>
+      <div class="line">Lactobacillus Blautia <span class="sym">→</span> đối tượng</div>
+      <div class="ev">tr. 8 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">And Lactobacillus and Blautia were significantly increased in</p></details>
+    </li>
+    <li>
+      <div class="line">chủ thể <span class="sym">→</span> CON group showed opposite trend</div>
+      <div class="ev">tr. 8 · kích hoạt / làm tăng</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">increased in the CON group, which showed an opposite trend</p></details>
+    </li>
+    <li>
+      <div class="line">whereas abundance Clostridiaceae <span class="sym">⊣</span> đối tượng</div>
+      <div class="ev">tr. 8 · chặn / ức chế</div>
+      <details style="margin:8px 0 0"><summary>Câu gốc</summary><p style="font-size:14px;margin:0">whereas the abundance of Clostridiaceae_1 was decreased.</p></details>
+    </li>
+  </ul>
+
+  <h2>Cách làm, theo đúng thứ tự bài viết</h2>
+  <ol style="padding-left:20px">
+    <li style="margin-bottom:8px;font-size:14.5px">± 0.5 kg, were allocated into three groups, six replicates per <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">Piglets were fed with a basal diet (CON) or a basal diet <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">supplemented with ZnO (2,000 mg Zn/kg) and C_ZnO (500 mg <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">The feeding experiment lasted for 42 days. <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">The basal diet was formulated according to the National Research <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">at 26 ± 2◦C and relative humidity was controlled at 60 ± 5%. <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">All the piglets were individually weighed at the beginning (day <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">The feed intake of each pen was recorded <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">The incidence of diarrhea for each pen was <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">Diarrhea rate was calculated according to <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">The lactulose/mannitol (L/M) test was performed as described <span class="mono" style="color:var(--muted)">tr.2</span></li>
+    <li style="margin-bottom:8px;font-size:14.5px">group was collected for baseline urinary sugar measurement. <span class="mono" style="color:var(--muted)">tr.2</span></li>
+  </ol>
+
+  <h2>Liều và nồng độ đã dùng</h2>
+  <div class="chips">
+    <span class="chip"><b>75-90% of</b> <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>1,600 mg Zn/kg</b> · limited <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>2,000 mg Zn/kg</b> <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>380 mg Zn/kg</b> · indicated that ZnO least <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>200 mg Zn/kg</b> · while lower content ZnO <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>2,000 mg Zn/kg</b> · supplemented with ZnO <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>500 mg</b> · with ZnO and ZnO <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>5%</b> · relative humidity was controlled <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>100%</b> <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>0.4 g/ml</b> · lactulose <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>0.2 g/l</b> · Sigma and mannitol <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>4% pa</b> <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>4% pa</b> · All samples were fixed <span style="color:var(--muted)">tr.2</span></span>
+    <span class="chip"><b>3 µm we</b> · Sections <span style="color:var(--muted)">tr.2</span></span>
+  </div>
+
+  <h2>Hình và bảng</h2>
+  <details>
+    <summary>10 mục, bấm để xem chú thích gốc</summary>
+    <ol>
+      <li><b>Bảng 1</b> <span class="mono" style="color:var(--muted)">tr.3</span><br>TABLE 1 | The ingredient and nutrient content of the basal diets used in two growth phases of weaned piglets (dry matter basis, %).</li>
+      <li><b>Bảng 2</b> <span class="mono" style="color:var(--muted)">tr.3</span><br>TABLE 2 | Effects of coated ZnO (C_ZnO) on the growth performance of piglets.</li>
+      <li><b>Hình 1</b> <span class="mono" style="color:var(--muted)">tr.4</span><br>FIGURE 1 | The effects of ZnO and coated ZnO (C_ZnO) on the intestinal mucosal morphology. (A) H&amp;E staining of ileal tissue in piglets and the analysis of intestinal</li>
+      <li><b>Hình 2</b> <span class="mono" style="color:var(--muted)">tr.5</span><br>Figure 2).</li>
+      <li><b>Hình 2</b> <span class="mono" style="color:var(--muted)">tr.5</span><br>FIGURE 2 | The effect of ZnO and C_ZnO on the expression of intestinal barrier proteins. (A,B) Western blotting results and analysis of Occludin and Claudin-7 in ileal</li>
+      <li><b>Hình 3</b> <span class="mono" style="color:var(--muted)">tr.6</span><br>FIGURE 3 | Effects of ZnO and C_ZnO on ileal microbial community of piglets. (A) Chao analysis of intestinal flora. (B) Principal coordinate analysis (PcoA) of intestinal</li>
+      <li><b>Hình 4</b> <span class="mono" style="color:var(--muted)">tr.7</span><br>FIGURE 4 | Effects of ZnO and C_ZnO on colonic microbial community of piglets. (A) Chao analysis of intestinal flora. (B) Principal coordinate analysis (PCoA) of</li>
+      <li><b>Bảng 3</b> <span class="mono" style="color:var(--muted)">tr.8</span><br>Table 3).</li>
+      <li><b>Bảng 3</b> <span class="mono" style="color:var(--muted)">tr.8</span><br>TABLE 3 | Effects of C_ZnO on intestinal SCFAs in the weaned piglets.</li>
+      <li><b>Hình 5</b> <span class="mono" style="color:var(--muted)">tr.9</span><br>FIGURE 5 | Bacterial isolation, characterization, and physiological identification. (A) Phylogenetic tree, colonial morphology, and Gram staining of S. thermophilus. (B)</li>
+    </ol>
+  </details>
+
+  <h2>Từng phần, kèm mức bằng chứng của từng câu</h2>
+  <div class="legend">
+<span><b>E</b> Số đo trong câu</span><span><b>F</b> Bằng chứng ở hình hoặc bảng</span><span><b>I</b> Suy luận hoặc cơ chế đề xuất</span><span><b>H</b> Khẳng định không kèm số</span>  </div>
+
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">Đặt vấn đề</h3>
+      <span class="smeta">tr. 1 · 508 từ · 39 câu</span>
+    </div>
+<p style="font-size:14px;color:var(--ink-2)">These years, early weaning techniques were commonly used in factories with the acceleration of the intensive breeding process, which directly caused severe diarrhea in piglets under multiple stresses, such as shifts in n</p>    <details>
+      <summary>Mở 4 câu đáng đọc của phần này (còn 35 câu nữa không hiển thị)</summary>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>limited to 1,600 mg Zn/kg in the diet of weaned piglets these</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>2,000 mg Zn/kg in the previous researches to reach the effect</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>studies had indicated that ZnO (at least 380 mg Zn/kg) supported</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>while lower content of ZnO (100 or 200 mg Zn/kg) did not make</p>
+      </div>
+    </details>
+  </div>
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">Vật liệu và phương pháp</h3>
+      <span class="smeta">tr. 2 · 1843 từ · 119 câu</span>
+    </div>
+<p style="font-size:14px;color:var(--ink-2)">Animals and Treatments A total of 126 crossbred piglets (Duroc × Landrace × Yorkshire, weaned at 21 days) with an initial body weight (IBW) of 7.0 ± 0.5 kg, were allocated into three groups, six replicates per group, and</p>    <div class="chips">
+<span class="chip" style="font-size:12.5px">Animals and Treatments</span><span class="chip" style="font-size:12.5px">Growth Performance and Diarrhea Rate</span><span class="chip" style="font-size:12.5px">Lactulose/Mannitol Test</span><span class="chip" style="font-size:12.5px">Sample Collection</span><span class="chip" style="font-size:12.5px">Intestinal Morphology Analysis</span><span class="chip" style="font-size:12.5px">Western Blotting Analysis</span><span class="chip" style="font-size:12.5px">Extraction of Microbial DNA From</span><span class="chip" style="font-size:12.5px">Intestinal Digesta</span><span class="chip" style="font-size:12.5px">Ion Chromatography</span><span class="chip" style="font-size:12.5px">Bacterial Isolation, Characterization, and</span><span class="chip" style="font-size:12.5px">Physiological Identification</span><span class="chip" style="font-size:12.5px">Statistical Analysis</span>    </div>
+    <details>
+      <summary>Mở 36 câu đáng đọc của phần này (còn 83 câu nữa không hiển thị)</summary>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>aPhase 1 referred to the weight of piglets ranging from 7 to 11 kg and phase 2 referred to the weight of piglets ranging from 11 to 25 kg. bPremix provided the following per kg of diet:</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>vitamin A, 12,000 IU; vitamin D3, 3,000 IU; vitamin E, 30 IU; vitamin K3, 2.5 mg; vitamin B12,20.0 µg; riboflavin, 4.0 mg; pantothenic acid, 12.5 mg; niacin, 40 mg; choline chloride,</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>CON, basal diet; ZnO, a basal diet supplemented with ZnO (2,000 mg Zn/kg); C_ZnO, a basal diet supplemented with C_ZnO (500 mg Zn/kg); V, villus height; C, crypt</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>weaned at 21 days) with an initial body weight (IBW) of 7.0</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>± 0.5 kg, were allocated into three groups, six replicates per</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>supplemented with ZnO (2,000 mg Zn/kg) and C_ZnO (500 mg</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>The feeding experiment lasted for 42 days.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>at 26 ± 2◦C and relative humidity was controlled at 60 ± 5%.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>observed and recorded at 08:00 and 14:00 h each day during the</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>per pen × days of diarrhea) / (total number of piglets × 21 days)</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>The urine of six piglets that starved 6 h of each</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>5 ml lactulose (0.4 g/ml; Sigma) and mannitol (0.2 g/l; Sigma).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>And urine was collected over a 6 h starving period from each</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>Intestinal tissue segments of about 2 cm were</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>in 4% paraformaldehyde solution for intestinal morphology</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>All samples were fixed in 4% paraformaldehyde for 48 h and</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 2</span>
+        </div>
+        <p>5% skim milk powder, followed by overnight incubation at</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>secondary antibodies (CST, Nanjing, Jiangsu, China) for 2 h at</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>and diluted to a final concentration of about 30 ng µl-1.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>of total 50 µl concluded 30 ng DNA sample, 2 µl of each</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>5 µl Fast Pfu Buffer and 3 µl Fast Pfu DNA Polymerase.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>products were examined on a 2% agarose gel.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>Data of L/M were shown as mean ± SEM (n = 6).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>means significantly different (P &lt; 0.05).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>basal diet supplemented with ZnO (2,000 mg Zn/kg); C_ZnO, basal diet supplemented</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>of sample was resuspended in 10 ml ultrapure water, then</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>the mixture performed ultrasonic treatment for 30 min and</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 3</span>
+        </div>
+        <p>centrifuged at 5,000 rpm for 10 min to obtain the supernatant.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>for a period of 48 h at 37◦C in an anaerobic workstation</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>the single colonies were sequenced using 16S primers: 27F</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>with crystal violet for 1 min and washed with running water.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>Iodine staining was applied and incubated for 1 min, followed</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>decolorization with alcohol for 30 s and thorough rinse, the</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>microbe was stained with safranine for 1 min and washed with</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 4</span>
+        </div>
+        <p>ranging from 0 to 1 g Zn/L for 8 h to reach the stationary phase.</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>was considered significant, and P &lt; 0.01 was strongly significant.</p>
+      </div>
+    </details>
+  </div>
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">Kết quả</h3>
+      <span class="smeta">tr. 5 · 1052 từ · 76 câu</span>
+    </div>
+<p style="font-size:14px;color:var(--ink-2)">C_ZnO Improved the Growth Performance, Diarrhea Rate, and Intestinal Permeability Coated ZnO improved end bodyweight (EDW), ADG, and F/G compared to the CON group and even the ZnO group (P &lt; 0.05).</p>    <div class="chips">
+<span class="chip" style="font-size:12.5px">C_ZnO Improved the Growth Performance,</span><span class="chip" style="font-size:12.5px">Diarrhea Rate, and Intestinal Permeability</span><span class="chip" style="font-size:12.5px">C_ZnO Improved the Intestinal Mucosal</span><span class="chip" style="font-size:12.5px">Morphology</span><span class="chip" style="font-size:12.5px">C_ZnO Strengthened the Intestinal Barrier</span><span class="chip" style="font-size:12.5px">Function</span><span class="chip" style="font-size:12.5px">C_ZnO Regulated the Composition and</span><span class="chip" style="font-size:12.5px">Diversity of the Bacterial Community</span><span class="chip" style="font-size:12.5px">C_ZnO Increased the Concentration of</span><span class="chip" style="font-size:12.5px">Intestinal SCFAs</span><span class="chip" style="font-size:12.5px">Streptococcus thermophilus Possessed</span><span class="chip" style="font-size:12.5px">C_ZnO and ZnO Tolerance and Could</span>    </div>
+    <details>
+      <summary>Mở 20 câu đáng đọc của phần này (còn 56 câu nữa không hiển thị)</summary>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 7</span>
+        </div>
+        <p>basal diet; ZnO, a basal diet supplemented with ZnO (2,000 mg Zn/kg); C_ZnO, a basal diet supplemented with C_ZnO (500 mg Zn/kg).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>compared to the CON group and even the ZnO group (P &lt; 0.05).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>And the ADFI showed no difference among all groups (P &gt; 0.05).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>in the period of the experiment (P &lt; 0.05).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>compared with the CON group (P &lt; 0.05) as indicated by the</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>(P &lt; 0.01), while no difference was found in the ratio of villus</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>in the ileum, compared with the CON group (P &lt; 0.01), and also</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>Claudin-7 showed no difference among these groups (P &gt; 0.05,</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>by the higher Chao index (P &lt; 0.05, Figure 3A).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>led to significant growth in Actinobacteria (P &lt; 0.05) and</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>Cyanobacteria (P &lt; 0.05) and decrease in Proteobacteria (P</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>Corynebacteriaceae (P &lt; 0.05) were increased, accompanied</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>CON, basal diet; ZnO, a basal diet supplemented with ZnO (2,000 mg</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 5</span>
+        </div>
+        <p>Zn/kg); C_ZnO, a basal diet supplemented with C_ZnO (500 mg Zn/kg).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 6</span>
+        </div>
+        <p>ZnO, basal diet supplemented with ZnO (2,000 mg Zn/kg); C_ZnO, basal diet supplemented with C_ZnO (500 mg Zn/kg).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 7</span>
+        </div>
+        <p>Streptococcus, Rothia, and Corynebacterium_1 (P &lt; 0.05) and</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 8</span>
+        </div>
+        <p>compared to the C_ZnO group (Figure 4D).</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 8</span>
+        </div>
+        <p>0.05) and propionate in both ileum (P &lt; 0.05) and colon (P</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 8</span>
+        </div>
+        <p>of acetate and propionate in ileum (P &lt; 0.05) and colon (P</p>
+      </div>
+      <div class="claim">
+        <div class="top">
+          <span class="badge e">E</span>
+          <span class="badge soft">Số đo trong câu</span>
+          <span class="badge soft">tr. 8</span>
+        </div>
+        <p>colonic lumen of the ZnO and C_ZnO treatments (P &lt; 0.05,</p>
+      </div>
+    </details>
+  </div>
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">Bàn luận</h3>
+      <span class="smeta">tr. 8 · 1394 từ · 116 câu</span>
+    </div>
+<p style="font-size:14px;color:var(--ink-2)">Coated ZnO reached a better effect than traditional ZnO on ADG and feed efficiency even in a lower dose, which coincided with the abundance of previous data (3, 18).</p>  </div>
+  <div class="sec">
+    <div class="shead">
+      <h3 style="margin:0">Kết luận</h3>
+      <span class="smeta">tr. 10 · 376 từ · 28 câu</span>
+    </div>
+<p style="font-size:14px;color:var(--ink-2)">Coated ZnO could improve growth performance and alleviate diarrhea in the weaned piglets, which was characterized by the improved intestinal barrier and intestinal morphology.</p>  </div>
+
+  <h2>Phê bình số liệu, máy đếm được</h2>
+  <ul style="padding-left:20px;margin:0 0 8px">
+    <li style="margin-bottom:8px;font-size:14.5px">378 câu khẳng định: 66 câu có số đo ngay trong câu (17.5%), 294 câu không kèm số nào (77.8%). Câu không kèm số chỉ kiểm được bằng hình hoặc bảng gốc.</li>
+    <li style="margin-bottom:8px;font-size:14.5px">Bài nêu cỡ mẫu 5 lần, nhỏ nhất 3, lớn nhất 42. Cỡ mẫu nhỏ nhất là mức chịu lực của kết luận.</li>
+    <li style="margin-bottom:8px;font-size:14.5px">10 hình và bảng cho 12 trang, trung bình 1.2 trang một hình. Số liệu nằm phần lớn ở hình, không ở câu chữ.</li>
+    <li style="margin-bottom:8px;font-size:14.5px">Bóc được 173 con số và 62 liều hoặc nồng độ, gắn với 31 cụm chất thử. Liều trong ống nghiệm và liều cho con vật cách nhau xa, không suy thẳng từ ống nghiệm ra chuồng được.</li>
+    <li style="margin-bottom:8px;font-size:14.5px">Bài không có mục giới hạn riêng. 7 câu dùng từ để ngữ ở phần bàn luận là chỗ tác giả chưa dám chắc, đọc kỹ trước khi trích.</li>
+  </ul>
+
+  <h2>Câu để ngữ ở phần bàn luận, chỗ tác giả chưa chắc</h2>
+  <details open>
+    <summary>7 câu để ngữ, đọc trước khi tin kết quả</summary>
+    <ol>
+      <li>partly affected by tight junctions (TJs), including claudins, <span class="mono" style="color:var(--muted)">Bàn luận, tr.8</span></li>
+      <li>and could enhance the resistance against the translocation of <span class="mono" style="color:var(--muted)">Bàn luận, tr.8</span></li>
+      <li>probiotic, could promote intestinal health through different <span class="mono" style="color:var(--muted)">Bàn luận, tr.9</span></li>
+      <li>other groups, we speculated that Streptococcus might be a <span class="mono" style="color:var(--muted)">Bàn luận, tr.9</span></li>
+      <li>of these bacteria might be related to the booms of ileal <span class="mono" style="color:var(--muted)">Bàn luận, tr.10</span></li>
+      <li>translocation, the enhanced SCFAs could partially illustrate the <span class="mono" style="color:var(--muted)">Bàn luận, tr.10</span></li>
+      <li>the ZnO treatment, C_ZnO could not gather Prevotellaceae, <span class="mono" style="color:var(--muted)">Bàn luận, tr.10</span></li>
+    </ol>
+  </details>
+
+  <h2>Câu hỏi còn bỏ ngỏ</h2>
+  <div class="box"><p style="margin:0">Không có câu nào nêu việc còn phải làm. Bài tự coi như đã khép.</p></div>
+
+  <h2>Từ điển viết tắt</h2>
+  <details>
+    <summary>4 từ viết tắt, bấm để mở</summary>
+    <ol>
+      <li><b>MRS</b> · Sharpe <span style="color:var(--muted)">(2 lần)</span></li>
+      <li><b>LB</b> · Luria-Bertani <span style="color:var(--muted)">(2 lần)</span></li>
+      <li><b>SRA</b> · Archive <span style="color:var(--muted)">(1 lần)</span></li>
+      <li><b>B16044</b> · Project <span style="color:var(--muted)">(1 lần)</span></li>
+    </ol>
+  </details>
+
+  <h2>Cách tự kiểm trang này</h2>
+  <div class="check">
+    <ol>
+      <li>Lấy đúng file PDF gốc, mở đúng số trang ghi trên từng câu, so lại nguyên văn.</li>
+      <li>Ba con số then chốt là số máy bóc, không phải số máy tính lại. Sai ngữ cảnh thì bỏ.</li>
+      <li>Bản đồ cơ chế là câu gốc cắt gọn, không phải kết luận của công cụ. Đọc câu gốc trong mục gập trước khi dùng.</li>
+      <li>Nhãn bằng chứng gán theo hình thức câu. Câu có số chưa chắc đã đúng thiết kế, cần đọc phương pháp.</li>
+      <li>Trang không dịch câu tiếng Anh. Mọi câu trong ngoặc kép giữ nguyên tiếng gốc để đối chiếu.</li>
+    </ol>
+  </div>
+</section>
+
+<footer class="foot">
+  Dựng tự động bằng paper2page 1.0.0 · Nguồn: bản PDF 10.3389_fnut.2022.819722.pdf · dựng lúc 01/11/2026 20:02 · Cỡ chữ thân bài gốc 9.5pt · Số và câu giữ nguyên văn, không làm tròn lại.
+</footer>
+
+</div>
+</body>
+</html>

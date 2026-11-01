@@ -1,0 +1,6 @@
+.paper2page/
+__pycache__/
+*.pyc
+.pytest_cache/
+demo_*
+*.pdf

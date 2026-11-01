@@ -1,0 +1,202 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/ntquang1110/paper2page/schema.json",
+  "title": "paper2page model",
+  "description": "Mô hình trung gian sinh ra bởi --json. Dùng để kiểm đầu ra hoặc đưa sang bước khác.",
+  "type": "object",
+  "required": ["meta", "paper", "understanding", "content_errors"],
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["source", "generated"],
+      "properties": {
+        "title": { "type": "string" },
+        "authors": { "type": "array", "items": { "type": "string" } },
+        "journal": { "type": "string" },
+        "year": { "type": "string" },
+        "doi": { "type": "string" },
+        "pmid": { "type": "string" },
+        "pmcid": { "type": "string" },
+        "license": { "type": "string" },
+        "pdf_via": {
+          "type": "string",
+          "description": "Nguồn tải được PDF: europepmc, unpaywall, frontiers, arxiv, file. Rỗng nghĩa là không có bản toàn văn mở."
+        },
+        "source": {
+          "type": "object",
+          "required": ["kind", "ref", "pdf"],
+          "properties": {
+            "kind": { "enum": ["file", "pdf", "text", "doi", "pmid", "pmcid", "arxiv", "pdf_url", "landing"] },
+            "ref": { "type": "string" },
+            "pdf": { "type": "string" }
+          }
+        },
+        "generated": { "type": "string" }
+      }
+    },
+    "paper": {
+      "type": "object",
+      "required": ["title", "pages", "n_stats", "n_refs", "n_figures"],
+      "properties": {
+        "title": { "type": "string" },
+        "abstract": { "type": "string" },
+        "pages": { "type": "integer", "minimum": 1 },
+        "body_font": { "type": "number" },
+        "n_stats": { "type": "integer" },
+        "n_refs": { "type": "integer" },
+        "n_figures": { "type": "integer" }
+      }
+    },
+    "understanding": {
+      "type": "object",
+      "required": ["headline", "toc", "claims", "evidence_counts", "n_claims_total", "critique"],
+      "properties": {
+        "headline": { "type": "string" },
+        "conclusion": { "type": "string" },
+        "sample": { "type": "string" },
+        "sample_note": { "type": "string" },
+        "key_numbers": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["value", "section", "page", "sentence"],
+            "properties": {
+              "value": { "type": "string", "description": "Giữ nguyên văn, không chuẩn hoá lại" },
+              "section": { "type": "string" },
+              "page": { "type": "integer" },
+              "sentence": { "type": "string" }
+            }
+          }
+        },
+        "toc": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "page", "words", "n_sentences"],
+            "properties": {
+              "label": { "type": "string" },
+              "page": { "type": "integer" },
+              "words": { "type": "integer" },
+              "first": { "type": "string" },
+              "n_sentences": { "type": "integer" },
+              "anchors": { "type": "string" }
+            }
+          }
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "section", "page", "evidence"],
+            "properties": {
+              "text": { "type": "string" },
+              "section": { "type": "string" },
+              "page": { "type": "integer", "minimum": 1 },
+              "evidence": { "enum": ["E", "F", "I", "H"] },
+              "is_limitation": { "type": "boolean" },
+              "is_open": { "type": "boolean" }
+            }
+          }
+        },
+        "evidence_counts": {
+          "type": "object",
+          "additionalProperties": { "type": "integer" }
+        },
+        "n_claims_total": { "type": "integer" },
+        "n_claims_shown": { "type": "integer" },
+        "section_totals": { "type": "object", "additionalProperties": { "type": "integer" } },
+        "flow": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["subject", "symbol", "object", "sentence", "page"],
+            "properties": {
+              "subject": { "type": "string" },
+              "symbol": { "enum": ["→", "⊣", "⊘", "↑", "↓"] },
+              "object": { "type": "string" },
+              "sentence": { "type": "string" },
+              "page": { "type": "integer" }
+            }
+          }
+        },
+        "limitations": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "limitations_source": { "enum": ["explicit", "hedge", "none", ""] },
+        "open_questions": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+        "critique": { "type": "array", "items": { "type": "string" } },
+        "glossary": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["abbr", "full", "count"],
+            "properties": {
+              "abbr": { "type": "string" },
+              "full": { "type": "string" },
+              "count": { "type": "integer" }
+            }
+          }
+        },
+        "doses": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["value", "section", "page"],
+            "properties": {
+              "value": { "type": "string" },
+              "agent_hint": { "type": "string" },
+              "section": { "type": "string" },
+              "page": { "type": "integer" }
+            }
+          }
+        },
+        "method_sentences": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["text", "page"],
+            "properties": { "text": { "type": "string" }, "page": { "type": "integer" } }
+          }
+        },
+        "figure_index": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "number", "caption", "page"],
+            "properties": {
+              "kind": { "enum": ["Hình", "Bảng"] },
+              "number": { "type": "string" },
+              "caption": { "type": "string" },
+              "page": { "type": "integer" }
+            }
+          }
+        },
+        "section_weights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["label", "words"],
+            "properties": { "label": { "type": "string" }, "words": { "type": "integer" } }
+          }
+        }
+      }
+    },
+    "content_errors": {
+      "type": "array",
+      "description": "Cảnh báo nội dung: thiếu câu chốt, quá ít câu khẳng định, không bóc được giới hạn, câu thiếu vị trí nguồn.",
+      "items": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object",
+      "required": ["text", "section", "page", "evidence"],
+      "properties": {
+        "text": { "type": "string" },
+        "section": { "type": "string" },
+        "page": { "type": "integer" },
+        "evidence": { "enum": ["E", "F", "I", "H"] },
+        "is_limitation": { "type": "boolean" },
+        "is_open": { "type": "boolean" }
+      }
+    }
+  }
+}
